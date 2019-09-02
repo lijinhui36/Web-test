@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画图</title>
+	<style>
+	  /* body{
+	   	   background: url('../小车移动/images/car.jpg') no-repeat;
+	   	   background-size:1300px 800px;
+	   }*/
+		div{
+			background: url('../小车移动/images/car.jpg') no-repeat;
+			background-size:500px 350px;
+			background-position: 0px 0px;
+			border-radius: 50%;
+			position: absolute;
+			/*overflow: hidden;*/
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var tempDiv;
+			var startX;
+			var startY;
+			document.onmousedown = function(event){
+				// 鼠标按下
+				tempDiv = document.createElement('div');
+				// 设置位置,保留位置是为了设置宽高
+				// div.innerHTML="<img src='../小车移动/images/car.jpg'>"
+				startX = event.clientX;
+				startY = event.clientY;
+				tempDiv.style.left = event.clientX+'px';
+				tempDiv.style.top = event.clientY+'px';
+				document.body.appendChild(tempDiv);
+			}
+			document.onmousemove = function(event){
+				// 设置宽高
+				if(tempDiv){
+					tempDiv.style.width = event.clientX-startX+'px';
+					tempDiv.style.height = event.clientX-startX+'px';
+				}
+			}
+			document.onmouseup = function(){
+				tempDiv = null;
+			}
+		}
+	</script>
+</head>
+<body>
+	按下鼠标绘制，移动鼠标改变大小
+</body>
+</html>

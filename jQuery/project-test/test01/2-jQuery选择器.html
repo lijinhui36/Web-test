@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <style>
+     div{
+     	width:100px;
+     	height: 100px;
+     	border:1px solid red;
+     }
+
+    </style>
+    <script src='../js/jquery-3.4.1.min.js'>
+    </script>
+    <script>
+    // $(function(){
+    // 	alert(1);
+    // })
+    //在文档加载完毕之后执行
+    $(document).ready(function(){
+    	// 给div绑定了点击事件
+    	console.log($('div'));
+    	//给所有选中的div绑定了click事件
+    	$('div').click(function(){
+    		alert(1);
+    	});
+         //样式操作
+         // $('div').css('backrgroundColor','red');
+         $('div').css({
+         	backgroundColor:'red',
+         	margin:'20px'
+         });
+    });
+    </script>
+</head>
+<body> 
+    <div>hello</div>
+    <div>world</div>
+</body>
+</html>

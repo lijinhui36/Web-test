@@ -1,0 +1,15 @@
+jQuery函数的参数
+	1.函数
+		$(function(){})
+		文档加载完毕之后执行function()函数代码
+    3.DOM节点
+        var div=document.getElementById('one');
+        div=>DOM节点
+        $(div);返回jQuery对象
+               将DOM节点转换为jQuery对象
+    4.html字符串
+        $('<div>hello</div>')
+          创建对应的节点，并且返回jQuery对象
+        $('<div>hello</div>')==>DOM节点
+    DOM节点转换成jQuery对象
+        $(div)

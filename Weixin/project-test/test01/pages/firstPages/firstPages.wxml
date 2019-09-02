@@ -1,0 +1,35 @@
+<button
+  type="default"
+>
+  {{btn1msg}}
+</button>
+
+<button
+  type="primary"
+  bindtap='btn2'
+>
+  primary
+</button>
+
+
+<text>
+{{msg}}
+</text>
+
+<!-- 渲染标签： -->
+<!-- 1.条件标签 -->
+<view wx:if='{{flag}}'>
+   这是一条隐晦的信息！
+</view>
+<view wx:else>
+  就是看不见信息，气死你！
+</view>
+
+
+<!-- 2.循环标签 -->
+<view wx:for="{{news}}" wx:for-item="nItem"
+      wx:for-index="nIndex">
+  {{nIndex}} --- {{nItem}}
+</view>
+
+

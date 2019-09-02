@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+     div{
+     	height: 100px;
+     	width: 100px;
+     	background: pink;
+     }
+    </style>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <script>
+    $(function(){
+    	$('.hide').click(function(){
+    		//隐藏
+    		// $('div').hide(100);
+    		$('div').fadeOut(500);
+
+    	});
+    	$('.show').mouseover(function(){
+    		//显示
+    		// $('div').show(100);
+    		// $('div').fadeIn(500);
+    		// $('div').fadeTo(300,0.5);
+    		$('div').slideDown(500);
+    	});
+    	$('.show').mouseout(function(){
+    		$('div').slideUp(500);
+    	});
+    	$('.toggle').click(function(){
+    		//显示
+    		// $('div').toggle(500);
+    		$('div').fadeToggle(500);
+    	});
+    	//自定义动画
+    	$('.own').click(function(){
+           $('div').animate({
+           	width:'300px',
+           	height:'200px',
+           	marginTop:'100px'
+           });
+    	});
+    });
+    </script>
+</head>
+<body> 
+    <button class="hide">隐藏</button>
+    <button class="show">显示</button>
+    <button class="toggle">切换</button>
+    <button class="own">自定义动画</button>
+    <div>hello</div>
+</body>
+</html>

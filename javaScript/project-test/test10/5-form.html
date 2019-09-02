@@ -1,0 +1,23 @@
+<script>
+    window.onload=function(){
+    	var a=document.links[0];
+    	var form=document.forms[0];
+    	var input=document.forms[0].lastElementChild;
+    	//console.log(a);
+    	//console.log(form);
+    	a.onclick=function(event){
+    		//阻止默认行为，非IE8及以下
+    		event.preventDefault();
+    		//阻止默认行为  IE及以下
+    		event.returnValue=false;
+    		if(event.preventDefault){
+    			event.preventDefault();
+    		}
+    		else{
+    			event.returnValue=false;
+    		}
+    	}
+    	a.onclick=handle;
+        input.onclick=handle;
+    }
+</script>

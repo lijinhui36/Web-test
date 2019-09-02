@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    function factorial(num){
+    	if(num<1){
+    		return 1;
+    	}
+    	else{
+    		return num*arguments.callee(num-1);
+    	}
+    };
+    // factorial(3);
+    console.log(factorial(3));
+    alert(factorial(3));
+    </script>
+</head>
+<body> 
+    
+</body>
+</html>

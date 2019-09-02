@@ -1,0 +1,205 @@
+3.1 微信小程序的UI开发
+    一、布局和样式基础	
+    二、组件使用
+    三、项目实战
+
+
+3.2 微信小程序的UI开发布局基础
+    布局：每个组件的排布方式。
+
+    布局方式分为：
+    1.flex布局基础(因为包含了浮动布局的所有功能，学这个就够了)； 
+    2.相对定位和绝对定位；
+
+  一、flex布局基础
+	前提： 
+	在样式组件中，指定要使用flex布局方式。
+	display: flex;
+
+      1.flex的容器和元素
+        采用Flex布局的元素，称为Flex容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称"项目"。
+
+      2.flex容器属性详解
+	1)flex-direction  决定元素在主轴的排列方向；
+	  （1）row（默认值）：主轴为水平方向，起点在左端。
+	  （2）row-reverse：主轴为水平方向，起点在右端。
+	  （3）column：主轴为垂直方向，起点在上沿。
+	  （4）column-reverse：主轴为垂直方向，起点在下沿。
+
+	2)flex-wrap  决定元素如何换行（排列不下时）；
+	  （1）nowrap（默认）：不换行。
+          （2）wrap：换行，第一行在上方。
+          （3）wrap-reverse：换行，第一行在下方。
+
+	3)flex-flow  是flex-direction和flex-wrap的简写；
+	   默认值为row nowrap。
+	   使用起来可通过空格设置两个属性。顺序无所谓
+
+	4)justify-content  元素在主轴上的对齐方式；
+	  （1）flex-start（默认值）：左对齐
+	  （2）flex-end：右对齐
+	  （3）center：居中
+	  （4）space-between：两端对齐，项目之间的间隔都相等。
+	  （5）space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+	  （6）space-evenly：平均分布。项目与项目以及项目与边框的间隔是一样的。
+
+	5)align-items  元素在交叉轴的对齐方式。
+	   （1）flex-start：交叉轴的起点对齐。
+	   （2）flex-end：交叉轴的终点对齐。
+	   （3）center：交叉轴的中点对齐。
+	   （3）baseline: 项目的第一行文字的基线对齐。
+	   （4）stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+
+      3.flex元素属性详解
+	只能用在flex item中，不能用在 flex container容器中。
+	1)flex-grow  当有多余空间时，元素的方大比例。
+	  （1）默认为0，即如果存在剩余空间，也不放大。
+	  （2）如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。
+	  （3）如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
+
+	2)flex-shrink  当空间不足时，元素的缩小比例；
+	  （1）默认为1，即如果空间不足，该项目将缩小。
+          （2）如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。
+	  （3）如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。
+
+	3)flex-basis  元素在主轴上占据的空间；
+	  （1）浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。
+	  （2）它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。
+
+	4)flex  是grow、shrink/basis的简写；
+	  （1）默认值为0 1 auto。后两个属性可选。
+	  （2）该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+	 注：建议优先使用（2）中的这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
+
+	5)order  定义元素的排列顺序；
+	  按照指定数字顺序进行排列。
+	  
+	6)align-self  定义元素自身的对齐方式。
+	  可以复盖父容器对齐方式。
+
+	注：align-self会复写容器属性中justify-content和align-items的设置。
+
+      4.flex布局实战
+
+  二、相对定位和绝对定位
+    1.理解相对定位和绝对定位
+      “相对定位的元素 是相对【自身】进行定位，参照物是【自己】”
+      “绝对定位的元素 是相对【离它最近的一个已定位的父级元素】进行定位”
+
+    2.相对定位、绝对定位的编码实战
+      1)相对定位：relative
+        position:relative;    /*相对定位*/
+	left:50rpx;    /*相对于自己往右偏离50*/
+	top:50rpx;     /*相对于自己往下偏离50*/
+
+      2)绝对定位：absolute
+        position: absolute;
+	left: 50rpx;
+	top: 50rpx;
+	（父级元素一定要是已定位）  
+    
+
+3.3 微信小程序的UI开发样式基础
+  一、样式的基本使用
+
+      首先在.wxml文件中，搭建架构
+      <view class="text">
+	   测试文本内容
+      </view>
+		
+      然后就可以在.wxcc文件中，编写样式内容
+      .text{
+	font-size : 20px;
+      }
+
+  二、样式的属性
+      1.尺寸
+        width,height,min-width,max-width,min-height,max-height等
+
+      2.背景
+        background-color,background-image,background-repeat等
+
+      3.边框
+        border,border-radius,border-width,border-color,border-style等
+
+      4.边距
+        margin, padding等
+
+      5.文本
+        color, font-size等
+
+      6.其他(列表、内容、表格)
+
+  三、样式选择器的使用
+      1.基本选择器
+        1)类选择器（.name{}）
+	2)ID选择器（#name{}）
+	3)元素选择器（name{}）
+	4)通配符选择器（*{}）:编译不通过
+	5)包含选择器（p c{}）:parent下所有的同一名字的child
+	6)自元素选择器（p > c{}）:parent下一层所有的同一名字的child
+	7)邻近兄弟元素选择器（c + c{}）:同一层级中与child1相邻的child2元素,给child2设置样式。
+	8)通用兄弟元素选择器（c ~ c{}）:同一层级中，child1下一个（可不相邻）child2元素
+
+
+      2.属性选择器
+	1)E[attr]：包含attr属性的元素
+	2)E[attr="value"]：属性值只等于“value"的元素
+	3)E[attr~="value"]：有的元素属性有很多个属性值，该样式表示属性值中只要有一个是“value"的元素
+	4)E[attr|="value"]：属性值以“value-"开头的元素
+	5)E[attr^="value"]：属性值以“value"开头的元素
+	6)E[attr$="value"]：属性值以“value"结尾的元素
+	7)E[attr*="value"]：属性值字符串中包含“value"的元素
+ 
+
+      3.伪类选择器
+        1)动态伪类选择器
+	  :link：链接没有被访问时的效果（微信小程序不支持）
+	  :hover：鼠标经过的效果（微信小程序不支持）
+	  :visited：链接被访问后的效果（微信小程序不支持）。
+	  :active：点下去的效果（正发生在点的那一下）。
+	  :focus：获得焦点后的效果。
+        
+	2)状态伪类选择器
+	  :enabeld  启用的状态   
+	  :disabled  禁用的状态
+	  :checked  选中的状态
+	注：一般用于按钮
+
+	3)选择伪类选择器
+	  (1):first-child：选择某个元素的第一个子元素（更确切的说为：选择第一个使用该属性的元素）。
+	  (2):last-child：选择某个元素的最后一个子元素（更确切的说为：选择最后一个使用该属性的元素。
+	  (3):nth-child()：选择某个元素的一个或多个特定的子元素（参数从1开始）。
+	  (4):nth-last-child()：选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算。
+	  (5):nth-of-type()：选择指定的元素（参数从1开始）。
+	  (6):nth-last-of-type()：选择指定的元素，从元素的最后一个开始计算.
+	  (7):first-of-type：选择一个上级元素的第一个同类子元素
+	  (8):last-of-type：选择一个上级元素的最后一个同类子元素
+	  (9):only-child：选择的元素是它的父元素的唯一一个子元素
+	  (10):only-of-type：选择一个元素是它的上级元素的唯一一个相同类型的子元素
+
+        4)空内容伪类选择器
+	   (:empty)：选择的元素里面没有任何内容
+
+        5)否定伪类选择器
+	  （:not）：不匹配该属性的每个元素（微信小程序不支持）
+
+	6)伪元素
+	  (1)::first-line：第一行
+	  (2)::first-letter：第一个字母
+	  (3)::selection：文本被选择（如复制时）后的效果，CSS只能修改background与color两个属性，微信小程序不支持
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+day02的复习
+  运算符
+  + - * / %
+  ++ --
+  = += -= /= %=
+  a+=1;
+  一元运算符 + -
+  三目运算符a>2?3:4;
+  逻辑运算符 && || ！
+数据类型的转换
+  其他->string
+	1）.toString(),
+	  null,undefined没有toString()
+	  (3).toString()
+	  3->Number(3)
+	  3--->基本数据类型
+	  (3).toString()
+    2)String()
+    3)+''
+  其他->bolean
+  其他->number
+    1)Number()
+    2)+ -
+    3)parseInt()
+    4)parseFloat()
+
+
+    2)如果有一个是string类型，另一个不是boject类型，而是其他基本数据类型，进行字符串的拼接
+      "1"+1      11
+      "i"+true   1true
+    3)如果有一个是object

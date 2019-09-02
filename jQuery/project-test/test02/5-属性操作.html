@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <script>
+    $(function(){
+    	//通过属性名获取属性值
+      console.log($('div').attr('title'));
+      console.log($('div').attr('data-id'));
+      console.log($('input').attr('checked'));
+       console.log($('div').prop('title'));
+      console.log($('div').prop('data-id'));
+      console.log($('input').prop('checked')); 
+      //使用attr操作正常属性和自定义属性，使用prop操作布尔属性
+      // $('div').attr('title','设置之后的值');
+      // $('div').attr('data-id','设置之后的id值');
+      // $('div').attr('checked',false); 
+      // $('div').prop('title','设置之后的值');
+      // $('div').prop('data-id','设置之后的id值');//不生效
+      // $('div').prop('checked',false); 
+      // 删除属性
+      // $('div').removeAttr('title');
+      // $('div').removeAttr('data-id');   
+      // $('input').removeAttr('checked');  
+      // $('div').removeProp('title');//不生效
+      // $('div').removeProp('data-id');  //不生效 
+      // $('input').removeProp('checked'); //不生效 
+      //不推荐使用removeProp
+    });
+    </script>
+</head>
+<body> 
+    <div title='hello' data-id='1001'>hello</div>
+    <input type="checkbox" checked/>
+</body>
+</html>

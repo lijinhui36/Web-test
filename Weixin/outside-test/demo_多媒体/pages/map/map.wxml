@@ -1,0 +1,18 @@
+
+<map style='height:300px;width:100%' 
+ongitude="113.324520" 
+latitude="23.099994"
+id='map'
+markers='{{markers}}'></map>
+
+
+
+<button type="primary" bindtap='openBtn'>查看位置</button>
+<button type='primary' bindtap='getBtn'>查看位置详细信息</button>
+<view>
+地址信息：{{address}}--
+名字：{{name}}--
+经度：{{longitude}}--
+纬度：{{latitude}}
+</view>
+<button type="primary" bindtap='chooseBtn'>打开地图位置</button>

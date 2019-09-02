@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片移动</title>
+</head>
+
+
+<body>
+<img id="myimg" src="./images/right.png" style="left:400px; top:200px; position:absolute"/>
+    <script>
+var img = document.getElementById("myimg");
+img.left = 400;
+img.top = 200;
+document.onkeydown = move;
+function move(e){
+var k = e.keyCode || e.which;
+switch(k){
+case 37:
+img.left = img.left-10;
+break;
+case 38:
+img.top = img.top-10;
+break;
+case 39:
+img.left = img.left +10;
+break;
+case 40:
+img.top = img.top + 10;
+break;
+}
+return img.style.left = img.left+'px',img.style.top = img.top+'px';
+}
+
+</script>
+</body>
+</html> 
+ 

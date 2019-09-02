@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制矩形</title>
+    <style>
+    canvas{
+    	border:1px solid red;
+    }
+    </style>
+    <script>
+    window.onload=function(){
+    	canvas=document.getElementById('canvas');
+    	//获取上下文对象
+    	var context=canvas.getContext('2d');
+    	//fill代表填充  stroke代表边框
+    	//绘制填充矩形
+    	context.fillStyle='pink';
+    	context.fillRect(10,10,100,200);
+        //绘制边框矩形
+        context.strokeStyle='pink';
+        // 设置边框线的宽度
+        context.lineWidth=10;
+        context.strokeRect(100,200,100,100);
+        context.strokeStyle='blue';
+        context.strokeRect(200,100,100,100);
+        context.clearRect(20,20,90,85);
+        context.clearRect(10,115,90,85);
+    }
+    </script>
+</head>
+<body>  
+   <canvas id="canvas" width="400px" height="400px">
+   </canvas>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<view class='container'>
+
+<camera mode="normal"
+style='height:100px'></camera>
+
+</view>

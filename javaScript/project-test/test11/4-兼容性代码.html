@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兼容性代码</title>
+    <script>
+     var eventUtil={
+        //事件绑定
+        bind:function(el,type,handle){
+            if(el.addEventListener){
+                el.addEventListener();
+            }else if(el.attachEvent){
+                el.attachEvent('on'+type,handle)
+            }
+        }
+        //事件解绑
+        unbind:function(el,type,handle){
+            if(el.removeEventListener){
+                el.removeEventListener(type,handle);
+            }else if(el.detachEvent){
+                el.detachEvent('on'+type,handle);
+            }else{
+                el['on'+type]=null;
+            }
+        }
+        //事件对象
+        //事件目标
+        getTarget:function(event){
+            return 
+        }
+        //停止冒泡
+        stopProp:function(){
+
+        }
+        //阻止默认
+        preventDef:function(event){
+            if(event.preventDefault){
+                event.preventDefault();
+            }else{
+                event.returnValue=true;
+            }
+        }
+
+        window.onload=function(){
+            var div=documet.getElementsByTagName('div')[0];
+            eventUtil.bind(div,'click',function(event){
+                 var e=eventUtil.getEvent(event);
+                 console.log(e);
+                 console.log(this);
+                 alert(1);
+            });
+        }
+     }
+    </script>
+</head>
+<body> 
+    <div id="outer">
+        <div id="center">
+            <div id="inner"></div>
+        </div>
+    </div>
+
+</body>
+</html>

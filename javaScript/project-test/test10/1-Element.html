@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element类型</title>
+    <style>
+      .red{
+        background:red;
+      }
+      .blue{
+        background:blue;
+      }
+    </style>
+    <script>
+       window.onload=function(){
+        var div=document.body.children[0];
+        console.log(div);//获取第一个属性节点
+        console.log(document.body.firstElementChild);
+        console.log(div.className);//red
+        console.log(div.title);//我是div
+        console.log(div.getAttribute('class'));//red
+        console.log(div.getAttribute('data-flag'));//1001
+        console.log(div.getAttribute('style'));
+        div.style.color='skyblue';
+        // background-color:red;
+        console.log(div.style);
+        console.log(div.onclick);//函数
+        console.log(div.getAttribute(onclick));//字符串
+        //更改属性值
+        div.title='hello';
+        div.setAttribute('title','world');
+        //移除属性
+        div.removeAttribute('title');
+        console.log(div.attributes);
+        console.log(div.attributes[0]);//属性节点对象 nodeType 2
+        div.attributes[2].nodeValue='blue';
+        div.attributes.getNamedItem('class');
+        //获取内容
+        console.log(div.innerHTML);
+        console.log(div.innerText);
+        console.log(div.textContent);
+        //修改内部文本
+        div.innerText='hello';
+        // div.innerHTML='<span>haha</span>';
+        div.innerHTML=`
+        <div>
+           <span>hello</span>
+        </div>`;
+    }
+    function test(){
+        var div=document.getElementBy("one");
+        // var str='red';
+        // if(div.className=='red'){
+        //     str='blue';
+        // }
+        div.className=(div.className=='red')?'blue':'red';
+    }
+    </script>
+</head>
+<body>
+    hello
+  	<div onclick='test()' style="color:coral" class='red' id='one' class="red" title='我是div' data-flag='1001'>
+       one two three
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <style>
+      .outer{
+      	border:1px solid blue;
+      	overflow: hidden;
+      	float:left;
+      	margin:10px;
+      }
+      .inner{
+      	border:1px solid red;
+      	width:50px;
+      	height: 50px;
+      	float:left;
+      	margin:10px;
+      }
+    </style>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <script>
+    $(function(){
+    	// var $result=$('.outer');
+    	// $result=$('.outer>.inner');
+    	$result=$('.one~');
+        $result=$('.outer .inner:first');
+        $result=$('.outer .inner:odd');
+        $result=$('.outer .inner:even');
+        $result=$('.outer .inner:not(.inner:gt(3))');
+        $result=$('.outer :contains("o")');
+    	$result.css('background-color','red');
+    })
+    </script>
+</head>
+<body> 
+    <div class="outer">
+       <div class="inner"></div>
+       <div class="inner one"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <!-- <div><div class="inner"></div></div>  -->
+    </div>
+    <div class="outer">
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+    </div>
+    <div class="outer">
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+    </div>
+</body>
+</html>

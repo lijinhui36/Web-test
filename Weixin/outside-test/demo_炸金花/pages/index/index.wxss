@@ -1,0 +1,44 @@
+.container
+{
+  width:30%;
+height:200px;
+position:relative;
+border:1px solid #787775;
+box-sizing:border-box; 
+display: inline-block;
+flex:1;
+margin:10px;
+border-radius:10px;
+box-shadow:5px 5px 3px #787775
+}
+.text
+{
+  width:0px;
+height:30px;
+position:absolute;
+top:15px;
+left:15px;
+font-size: 25px;
+font-weight: bolder
+}
+.img
+{
+  width:50px;
+height:50px;
+position:absolute;
+top:50%;
+left:50%;
+margin-left:-25px;
+margin-top:-25px;
+}
+.text1
+{
+  width:30px;
+  height:30px;
+  position:absolute;
+  bottom:15px;
+  right:15px;
+  font-size: 25px;
+  font-weight: bolder;
+  transform: rotate(180deg);
+  }

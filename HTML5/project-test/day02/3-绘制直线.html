@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制直线</title>
+    <style>
+    canvas{
+    	border:1px solid red;
+    }
+    </style>
+    <script>
+    window.onload=function(){
+       var canvas=document.getElementById('canvas');
+       var context=canvas.getContext('2d');
+       // context.beginPath();
+       // context.moveTo(0,0);
+       // context.lineTo(100,50);
+       // context.lineTo(130,90);
+       // context.lineTo(140,140);
+       // context.lineTo(120,200);
+       // context.lineTo(100,220);
+       // context.lineTo(78,240);
+       // context.lineTo(70,250);
+       // context.lineTo(67,260);     
+       // context.strokeStyle='coral';
+       // context.lineWidth=5;
+       // // context.closePath();
+       // context.stroke();
+       
+
+       //创建线性渐变对象
+       // var g=context.createLinearGradient(0,350,100,350);
+       // var g=context.createRadialGradient(200,200,10,200,200,200);
+       // //添加渐变颜色 参数 偏移量0-1 颜色值
+       // g.addColorStop(0.2,'red');
+       // g.addColorStop(1,'blue');
+       // context.fillStyle=g;
+       // context.fillRect(0,0,400,400);
+
+       //绘制曲线
+       context.beginPath();
+       context.moveTo(0,0);
+       // context.bezierCurveTo(200,0,400,200,400,400);
+       context.quadraticCurveTo(400,0,400,400);
+       context.stroke();
+    }
+    </script>
+</head>
+<body> 
+    <canvas id="canvas" width='400px' height="400px"></canvas>
+</body>
+</html>

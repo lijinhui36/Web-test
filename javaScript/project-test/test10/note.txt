@@ -1,0 +1,35 @@
+继承
+  原型链继承
+	  Dog.prototype=new Animal();
+	  Dog.prototype.constructor=Dog;
+	  ...追加
+  经典继承
+      继承属性
+      在自构造函数中调用父构造函数Animal.call()
+      组合继承 伪经典继承
+      原型链继承+经典继承
+     getElementBy...用来获取元素
+     divNode.title='world';
+     元素节点.属性名
+
+
+事件
+   事件三要素
+      事件三要素
+      谁触发的事件去执行
+      事件处理程序
+         function()
+      事件对象
+         event
+           type:
+           target:
+           ......
+         div.onclick=function(){event}
+
+
+    事件流
+    
+
+
+
+

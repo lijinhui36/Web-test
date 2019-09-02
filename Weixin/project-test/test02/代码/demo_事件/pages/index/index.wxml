@@ -1,0 +1,20 @@
+<view class="view1" 
+      bindtap='v1Click'
+      id="view1"
+      data-name='tom'
+      data-age='20'>
+  view 111
+
+  <view class="view2"
+        bindtap='v2Click'>
+    view 222
+  
+    <view class="view3" 
+          bindtap='v3Click'
+          id='view3'>
+      view 333
+    </view>
+
+  </view>
+
+</view>

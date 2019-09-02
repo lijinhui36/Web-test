@@ -1,0 +1,24 @@
+<swiper 
+indicator-dots="{{true}}"
+indicator-color='#fff'
+indicator-active-color='blue'
+
+  autoplay="{{true}}" 
+  interval="{{1000}}" 
+  duration="{{1000}}"
+  circular='{{true}}'
+  vertical="{{false}}"
+  previous-margin="0px"
+  display-multiple-items="1"
+  easing-function="easeOutCubic"
+  >
+
+  <view wx:for="{{imgUrls}}">
+
+    <swiper-item item-id="index">
+      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+    </swiper-item>
+
+  </view>
+
+</swiper>

@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="container">
+  <image src='/images/xiaomi9.png'  
+     mode="widthFix"></image>
+</view>

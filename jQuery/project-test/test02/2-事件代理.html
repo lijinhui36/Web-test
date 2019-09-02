@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件代理</title>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <script>
+    $(function(){
+    	//用body代理button的
+    	$('body').on('mouseover','button',{id:1001},function(event,a,b){
+            // console.log(event,a,b);
+            $('button').text('hello');
+            // $('button').style.backgroundColor='red'
+    	});
+    	// $('body').off('click','button');
+    	// 模拟事件执行
+        // $('button').trigger('click',[1,2]);
+    });
+    </script>
+</head>
+<body> 
+    <button>点击</button>
+</body>
+</html>

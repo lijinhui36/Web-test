@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script>
+    findAllCategory();
+    saveCategory({
+      name:'test',comment:'test',no:1
+    });
+    findAllCategory();
+    deleteCategoryById(157);
+    batchDeleteCategory({
+      ids:[200,201,202,203].toString()
+    })
+    //批量删除
+    //参数：批量删除的id的数组
+    function batchDeleteCategory(arr){
+        
+    }
+    //删除栏目
+    function deleteCategoryById(id){
+       var http=var XMLHttpRequest();
+       http.open('GET',''+id);
+       http.onreadystatechange=function(){
+        if(http.status===200&&http.readyState===4){
+          console.log(res.responseText);
+        }
+       }
+       http.send();
+    }
+    //查看
+    function findAllCategory(){
+      var http=new XMLHttpRequest();
+      http.open('GET','');
+      http.onreadystatechange=function(){
+        if(http.status===200&&http.readyState===4){
+          cnsole.log(http.responseText);
+        }
+      }
+    }
+      function saveCategory(){};
+      //发送post请求，并且携带参数
+      var http=new
+      XMLHttpRequest();
+      http.open('POST','');
+      //监听，如果响应完成并且响应成功，获取响应的数据
+      http.onreadystatechange=function(){
+        if(http.status===200&&http.readyState===4){
+          console.log(http.responseText);
+        }
+      }
+      //设置请求头
+      http.setRequestHeader('Content-Type','application/x-www-form-urlencoded;charset=UTF-8');
+      //传递表单式的数据
+      http.send(encodeFormData({
+        name:'liu',
+        conmment:'liu1',
+        no:12
+      }));
+      //将js的数据转换成表单格式数据
+      function encodeFormData(){
+
+      }
+    </script>
+</head>
+<body> 
+    
+</body>
+</html>

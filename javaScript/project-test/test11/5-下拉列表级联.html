@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡阶段与捕获阶段的测试</title>
+    <script>
+       var grades=[{
+        id:1001,
+        name:'一年级'
+       },{
+        id:1002,
+        name:'二年级'
+       },{
+        id:1003,
+        name:'三年级'
+       }];
+       var classes=[{
+        id:101,
+        name:'一年级一班',
+        gradeId:1001
+       },{
+        id:102,
+        name:'一年级二班',
+        gradeId:1001
+       },{
+        id:103,
+        name:'一年级三班',
+        gradeId:1001
+       },{
+        id:104,
+        name:'二年级一班',
+        gradeId:1002
+       },{
+        id:105,
+        name:'二年级二班',
+        gradeId:1002
+       },{
+        id:106,
+        name:'二年级三班',
+        gradeId:1002
+       },{
+        id:107,
+        name:'三年级一班',
+        gradeId:1003
+       },{
+        id:108,
+        name:'三年级二班',
+        gradeId:1003
+       },{
+        id:109,
+        name:'三年级三班',
+        gradeId:1003
+       }];
+       window.onload=function(){
+        var gradeSelect=document.getElementById('grade');
+        var classSelect=document.getElementById('class');
+         //将所有的年级展示到
+         grades.forEach(function(item){
+            var newOption=document.createElement('option');
+            newOption.innertext=item.name;
+            newOption.value=item.id;
+            gradeSelect.appendChild(newOption);
+         })
+         gradeSelect.onchange=function(){
+            console.log(this.value);
+            var vm=this;
+            if(this.value){
+                //过滤对应的班级，添加数据到classSelect
+                var classresult=classes.filter(function(item){
+                    console.log(item.gradeId,vm.value);
+                    return item.gradeId==vm.value;
+                });
+                console.log(classresult);
+                var str='<option>请选择</option>';
+                calssSelect.forEach(function(item){
+                    str+='<option value="'+item.id+'">'+item.name+'</option>'
+                });
+                classSelect.innerHTML=str;
+                classSelect.disabled=false;
+            }else{
+                //禁用班级select
+                classSelect.innerHTML='<option>请选择</option>';
+                classSelect.disabled=true;
+            }
+         }
+       }
+    </script>
+</head>
+<body> 
+    <select id="grade"></select>
+      <option value="">请选择</option>
+    <select id="class" disabled>
+      <option value="">请选择</option>
+    </select>
+</body>
+</html>

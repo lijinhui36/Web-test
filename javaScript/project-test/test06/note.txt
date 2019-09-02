@@ -1,0 +1,26 @@
+Array
+  声明数组
+    arr=
+		new Array()
+		new Array(23,5,67);
+    arr=[23,5,67];
+  访问数组中的元素
+    console.log([23,5,67][0]);
+方法
+  栈方法
+    pop()取最后一个，返回取出的元素
+    push() 追加大末尾，返回添加后的数组长度
+  队列防范
+    shif()取第一个，放回取出的元素
+    unshift()追加到头部，返回添加后的数组长度
+  排序方法
+    reverse()改变原数组
+    sort()排序
+      sort(function(a,b){
+      if(a>b){
+      return 1;
+      }
+      else{
+      return -1;
+      }
+      })

@@ -1,0 +1,3 @@
+<view bindtap='vClick'>
+<canvas style="width: 320px; height: 350px;" canvas-id="firstCanvas"></canvas>
+</view>

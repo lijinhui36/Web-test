@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <style>
+      .outer{
+      	border:1px solid blue;
+      	overflow: hidden;
+      	float:left;
+      	margin:10px;
+      }
+      .inner{
+      	border:1px solid red;
+      	width:50px;
+      	height: 50px;
+      	float:left;
+      	margin:10px;
+      }
+    </style> 
+    <script>
+    $(function(){
+        //选中每一个outer中的第一个inner，选出来三个
+        var $result=$('.outer .inner:first-child');
+        // var $result=$('.outer .inner:first');//只有一个元素
+        // 作为别人第偶数个孩子的
+        var $result=$('.outer .inner:nth-child(even)');  
+        $result.css('background-color','red');
+    });
+    </script>
+</head>
+<body> 
+    <div class="outer">
+       <div class="inner"></div>
+       <div class="inner one"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <!-- <div><div class="inner"></div></div>  -->
+    </div>
+    <div class="outer">
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+    </div>
+    <div class="outer">
+       <div class="inner"></div>
+       <div class="inner"></div>
+       <div class="inner"></div>
+    </div>
+</body>
+</html>

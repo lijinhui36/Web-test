@@ -1,0 +1,29 @@
+<view style="text-align:center;position:fixed;top:10px;left:0;width:100%;color:green;font-weight:bolder" hidden="{{hidden}}">恭喜你得了{{score}}分！</view>
+　　<view style="clear:both;overflow:hidden;display:flex;margin-top:50px">
+
+　　<view class="container" style="background:{{b1}};" >
+　　<text class="text">{{num1}}</text>
+　　<image class="img" src="../../images/a4ebae3a2923bfe0f4327ec4333abec.png" style="transform: rotate({{deg1}}deg)"></image>
+　　<text class="text1">{{num1}}</text>
+　　</view>
+
+　　<view class="container" style="background:{{b2}};">
+　　<text class="text">{{num2}}</text>
+　　<image class="img" src="../../images/a4ebae3a2923bfe0f4327ec4333abec.png" style="transform: rotate({{deg2}}deg)"></image>
+　　<text class="text1">{{num2}}</text>
+　　</view>
+
+　　<view class="container" style="background:{{b3}};">
+　　<text class="text">{{num3}}</text>
+　　<image class="img" src="../../images/a4ebae3a2923bfe0f4327ec4333abec.png" style="transform: rotate({{deg3}}deg)"></image>
+　　<text class="text1">{{num3}}</text>
+　　</view>
+
+　　</view>
+　　<button bindtap="start" type="{{butype}}" style="margin:20px">{{butext}}</button>
+　　<view style="font-size:13px;padding:20px;color:gray">
+　　<view>1.如果三张数字相同得40分，如果三张数字是连续的得30分,如果两个数字是相同的得10分</view>
+　　<view>2.如果三张花色一样得20分，如果两张花色一样得10分</view>
+　　<view>3.三张数字之和</view>
+　　<view>以上所有数字的总和为总分</view>
+　　</view>

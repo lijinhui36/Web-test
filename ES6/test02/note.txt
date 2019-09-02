@@ -1,0 +1,40 @@
+ES6转ES5的步骤
+	初始化Node项目
+		npm init -y
+		package.json文件
+	安装依赖
+		npm install --save-dev
+		babel-cli
+		babel-preset-latest
+	编写babel配置文件，在项目根目录底下
+	 	.babelrc
+	 	{
+	 		"presets":["latest"]
+	 	}
+ 	编写ES6代码
+ 	编写脚本命令
+ 		package.json
+ 		{
+ 			"scripts":{
+ 				...
+ 				"start":"babel --out-dir dist"
+ 			}
+ 		}
+	转换
+		num run start
+基础知识
+	let关键字
+	变量声明不提升
+	暂时性死区
+	不能重复声明
+	const关健字
+
+解构
+    交换数据
+    	let x=1;
+    	let y=2;
+    	[x,y]=[y,x];
+    函数参数的赋值
+    	function test([a=0,])
+
+

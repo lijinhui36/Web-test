@@ -1,0 +1,8 @@
+<view class="container">
+
+<camera mode="normal" style='height:100px'
+device-position="front"
+flash="off"
+></camera>
+
+</view>

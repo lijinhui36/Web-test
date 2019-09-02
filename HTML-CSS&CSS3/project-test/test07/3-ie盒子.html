@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ie盒子模型</title>
+	<style>
+		/*ie盒子模型中设置的宽高是盒子的宽高*/
+		div{
+			width: 100px;
+			height: 100px;
+			border:1px solid red;
+			padding:10px;
+			/*盒子宽： width 100px*/
+			/*盒子高： height 100px*/
+			/*内容区宽： width-左右border-左右padding*/
+			/*内容区高： height-上下border-上下padding*/
+			margin:10px;
+			/*所占屏幕空间宽：width+左右margin*/
+			/*所占屏幕空间高：height+上下margin*/
+			/*设置盒子模型*/
+			/*w3c盒子模型*/
+			/*box-sizing: content-box;*/
+			/*ie盒子模型*/
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div>hello</div>
+</body>
+</html>

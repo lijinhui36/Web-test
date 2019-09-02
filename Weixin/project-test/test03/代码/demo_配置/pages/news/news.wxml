@@ -1,0 +1,2 @@
+<!--pages/news/news.wxml-->
+<text>{{msg}} 这里是新闻 {{num}} 的详情页！！！</text>

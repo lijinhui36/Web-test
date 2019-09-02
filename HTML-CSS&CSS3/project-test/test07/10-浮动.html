@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		.one{
+			height:150px;
+			background-color: coral;
+			/*左浮动 浮动元素脱离文档流，原先位置不保留*/
+			float: right;
+		}
+		.two{
+			background-color: teal;
+			float: right;
+		}
+		.three{
+			background-color: pink;
+			/*清除浮动  清除兄弟元素的浮动*/
+			/*clear:both;*/
+			float: right;
+		}
+		.four{
+			background-color: navy;
+			float: right;
+		}
+		.five{
+			/*clear:both;*/
+			background-color: cyan;
+			/*float: right;*/
+			/*clear:both;*/
+		}
+		.six{
+			/*float: right;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+	<div class="two">two</div>
+	<div class="three">three</div>
+	<div class="four">four</div>
+	<div class="five">five</div>
+	<div class="six">six</div>
+</body>
+</html>

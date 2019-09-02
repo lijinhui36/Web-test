@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function b(){
+            var i = 2;
+            var num=90;
+            var all=num;
+            var txt='';
+    while(i<num){
+        if(num%i==0){
+            num /= i;
+            txt+=i+"*";
+        }
+        else{
+            i++;
+        }
+    }
+    document.write(all+"="+txt+num);
+}
+    </script>
+</head>
+<body>
+<button onclick="b()">点击</button>
+</body>
+</html>

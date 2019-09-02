@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>可见性过滤器</title>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <style>
+      .one{
+      	display: none;
+      }
+      .two{
+      	visibility: hidden;
+      }
+      .three{
+      	opacity: 0;
+      }
+    </style>
+    <script>
+    $(function(){
+    	var $result=$(':hidden');
+    	var $result=$('body :visible');
+    	// 
+    	var $result=$('body [title!=one]');
+    	console.log($result);
+    });
+    </script>
+</head>
+<body> 
+    <div title='hello'>hello</div>
+    <div class="one">display:none</div>
+    <div>visibility:hidden</div>
+    <input type="hidden"/>
+    <div class="three">opacity:0</div>
+</body>
+</html>

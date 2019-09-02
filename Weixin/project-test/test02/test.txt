@@ -1,0 +1,135 @@
+2.1 微信小程序的配置详解
+	主要通过微信小程序官网中，框架---配置 中来查看。因为配置信息经常会发生变动。
+	配置分为：全局配置和页面配置。
+		全局配置： app.json 
+		页面配置： xx.json
+   一、app的页面配置
+	app.json中"pages"表示的数组，第一个表示要加载的页面
+
+   二、app的窗口配置
+	app.json中"window"。其中配置包括：
+	1."backgroundTextStyle":"dark" --->下拉 loading 的样式，仅支持 dark / light
+	2."navigationBarBackgroundColor": "#fff" --->导航栏背景颜色
+	3."navigationBarTitleText": "WeChat" --->导航栏标题文字内容
+	4."navigationBarTextStyle":"black" --->导航栏标题颜色，仅支持 black / white
+	...
+	
+   三、app的tabBar配置
+	"tabBar": {
+	    "color":"#ff0000",
+	    "selectedColor":"#0f0",
+            "borderStyle":"black",
+            "position":"bottom",
+
+	    "list": [
+	      {
+		"pagePath": "pages/index/index",
+		"iconPath":"images/one.png",
+	        "selectedIconPath":"images/one_select.png",
+		"text": "首页"
+	      },
+	      {
+		"pagePath": "pages/logs/logs",
+		"text": "日志"
+	      }
+	    ]
+	}
+	注：tabBar在app.json配置之后没有显示，是因为配置的pagePath路径中，必须有一个为页面首页。
+
+	其中属性含义：
+	tabBar:
+	1.color：tab上的文字默认颜色
+	2.selectedColor：tab上的文字选中时的颜色 
+	3.borderStyle：tabbar上边框的颜色， 仅支持 black / white。默认black
+	4.list：tab 的列表
+	5.position：tabBar的位置，仅支持 bottom / top。默认bottom
+	
+	tabBar-list:
+	1.pagePath：页面路径，必须在 pages 中先定义
+	2.text：tab 上按钮文字
+	3.iconPath：图片路径，不支持网络图片。当 postion 为 top 时，不显示 icon。
+	4.selectedIconPath：选中时的图片路径，不支持网络图片。当 postion 为 top 时，不显示 icon。
+	
+   四、网路超时配置及debug开启配置
+	"networkTimeout": {
+	    "request": 10000,
+	    "downloadFile": 10000
+	 },
+	 "debug": true
+
+     Ⅰ.网络超时中属性含义：
+	1.request：只影响wx.request 的超时时间，单位：毫秒。
+	2.connectSocket：只影响wx.connectSocket 的超时时间，单位：毫秒。
+	3.uploadFile：只影响wx.wx.uploadFile 的超时时间，单位：毫秒。
+	4.downloadFile：只影响wx.downloadFile 的超时时间，单位：毫秒。
+	
+     Ⅱ.debug配置只有boolean类型值，表示开始和关闭debug。
+	作用：在开发者工具的控制台面板，调试信息以 info 的形式给出，其信息有Page的注册，页面路由，数据更新，事件触发等。可以帮助开发者快速定位一些常见的问题。
+  
+   五、页面配置
+	用于覆盖app.json全局配置中的"windows"的配置，按照自己当前页面的格式来进行配置。
+
+
+2.2 微信小程序的生命周期与app对象的使用
+    一、app的生命周期
+	先调用onLaunch；当app显示调用onShow；当app成为后台，则会调用onHide；当app再次称为前台显示时，调用onShow。
+
+    二、app对象的使用
+       如果在app.js中定义的数据/方法，在每个page的.js中都可以通过var app = getApp()的方式获取app对象。
+       然后可以通过app.方法名()来调用方法；通过app.数据名.xxx 来获得里面指定的数据。
+
+
+2.3 微信小程序页面的生命周期与参数传递
+    一、页面的生命周期
+	当一个页面跳转到另外一个页面，触发onHide；在返回当前页面的时候，触发onShow。
+	每一个页面在被创建的时候，会触发 onLoad （加载数据）/onShow （绑定数据）/onReady （正常显示）。
+	onUnload表示页面被卸载。
+
+    二、页面跳转的数据传递
+
+       页面跳转：
+       1.从A页面跳转到B页面，A页面隐藏，返回时B页面被销毁，A页面显示。
+	wx.navigateTo({
+	  url: '../logs/logs',
+	})
+
+       2.从A页面跳转到B页面，A页面销毁，B页面显示，不能回退。
+	wx.redirectTo({
+	  url: '../logs/logs',
+	})
+
+       3.只能跳转到tabBar页面，url只能为tabBar中某一个的路径。否则无法跳转。
+        wx.switchTab({
+	   url: '../logs/logs',
+	})
+
+       4.将当前所有打开页面全部销毁，然后打开url指向的页面
+        wx.reLaunch({
+	  url: '../logs/logs',
+	  })
+
+       5.如果使用tabBar,两个页面都没有销毁，而是互相隐藏。
+
+	wx.navigateTo()保留当前页面，跳转到应用内的某个页面。
+	wx.redirectTo()关闭当前页面，跳转到应用内的某个页面。
+	wx.switchTab()跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
+	wx.reLaunch()关闭所有页面，打开到应用内的某个页面。
+
+	注：若是在全局app.json中配置了tabBar，引用的"pagePath"链接 与 wx.navigateTo和 wx.redirectTo 页面跳转url地址相同就无法实现跳转
+
+	<navigator url="../logger/logger?id=20" redirect>
+			...
+	</navigator>
+
+	
+
+2.4 综合案例 - 用户登录
+   1.需求分析：
+     点击用户中心，由于没有用户信息，所以需要登录。登录之后就可以进行首页和用户中心响应的切换了。
+   2.准备
+     页面的.wxcc样式文件和.wxml布局文件 以及 相关图片。
+
+
+
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <script>
+      $(function(){
+      	  // $result=$('.outer').children('.inner');
+         //  console.log($result);
+         //  console.log($('.outer>.inner'));
+          // $result=$('.outer').find('.inner');
+          // console.log($result);
+          // console.log($('.outer>.inner'));
+          // console.log($('.one').nextAll('.inner'));
+          // console.log($('.three').prevAll('.inner'));
+          console.log($('.inner').parent('.inner'));     
+      });
+    </script>
+</head>
+<body> 
+    <div class="outer">
+	    <div class="inner">子代inner
+	        <div class="inner">nihao</div>
+	    </div>
+	    <div class="three">后代inner</div>
+	    <div class="inner">三代inner</div>
+    </div>
+</body>
+</html>

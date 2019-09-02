@@ -1,0 +1,11 @@
+<video controls="{{true}}"
+       src="{{src}}"
+      id="myVideo"
+      danmu-btn='{{true}}'
+      danmu-list="{{danmuList}}"
+      enable-danmu="{{true}}"
+></video>
+<input placeholder='请输入弹幕信息' bindinput='inputClick'></input>
+<button bindtap='danmuBtn'>发送弹幕</button>
+
+<button bindtap="getVideo">获取视频</button>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>太极图案</title>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <style>
+        .taiji{
+            animation-name:taiji;
+            animation-duration: 3s;
+            animation-direction: reverse;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+        @keyframes taiji{
+                0%{
+                    transform: rotate(0deg);
+                }
+                100%{
+                    transform: rotate(360deg);;
+                }
+            }
+        
+    </style>
+    <script>
+    window.onload=function(){
+    	canvas=document.getElementById('canvas');
+    	//获取上下文对象
+    	var context=canvas.getContext('2d');
+        // 绘制圆
+        context.beginPath();
+        //true为逆时针，默认为false顺时针
+        context.arc(300,300,300,0,Math.PI,true)
+        context.stroke();
+        context.beginPath();
+        //true为逆时针，默认为false顺时针
+        context.arc(300,300,300,0,Math.PI)
+        context.fill();
+
+        context.beginPath();
+        context.arc(150,300,150,0,Math.PI,false);
+        context.fillStyle='white';
+        context.fill();
+        context.beginPath();
+        context.arc(450,300,150,0,Math.PI,true);
+        context.fillStyle='#000';
+        context.fill();
+
+        context.beginPath();
+        context.arc(150,300,50,0,Math.PI*2,true);
+        context.fill();
+        context.beginPath();
+        context.arc(450,300,50,0,Math.PI*2,true);
+        context.fillStyle='white';
+        context.fill();	
+    }
+    </script>
+</head>
+<body>  
+   <canvas class="taiji" id="canvas" width="600px" height="600px">
+   </canvas>
+</body>
+</html>

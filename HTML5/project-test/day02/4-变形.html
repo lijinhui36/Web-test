@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变形</title>
+    <style>
+    canvas{
+    	border:1px solid red;
+    }
+    </style>
+    <script>
+    window.onload=function(){
+       var canvas=document.getElementById('canvas');
+       var context=canvas.getContext('2d');
+       context.fillRect(0,0,100,100);
+       // context.translate(100,100);
+       // context.fillRect(0,0,100,100);
+       // context.translate(200,0);
+       // context.fillRect(0,0,100,100);
+       // context.translate(-100,-100);
+       // context.fillRect(0,0,100,100);
+       context.scale(0.8,0.8);
+       context.fillRect(125,125,100,100);
+       context.scale(0.8,0.8);
+       context.fillRect(156,156,100,100);
+    }
+    </script>
+</head>
+<body> 
+     <canvas id="canvas" width='400px' height="400px"></canvas>
+</body>
+</html>

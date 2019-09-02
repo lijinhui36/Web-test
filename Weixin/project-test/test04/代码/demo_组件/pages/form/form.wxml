@@ -1,0 +1,25 @@
+<form bindsubmit="formSubmit">
+
+多选框：
+  <checkbox-group name="checkbox">
+    <checkbox value="学习" checked='{{true}}'>学习</checkbox>
+    <checkbox value="游戏">游戏</checkbox>
+    <checkbox value="吃">吃</checkbox>
+  </checkbox-group>
+
+
+ <input name="input" placeholder='输入框'
+  maxlength='5'></input>
+
+
+ <text> 滑动：</text>
+  <slider  name="slider"
+  step='1'
+  show-value='{{true}}'
+  block-size="15"></slider>
+
+
+
+  <button form-type='submit'>提交</button>
+  <button form-type='reset'>清空</button>
+</form>

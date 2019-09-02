@@ -1,0 +1,62 @@
+Set集合
+	数据不重复
+	new Set()
+	set.add(value)
+	set.delete();
+	set.clear();
+	set.has(value);
+	是否有某个值
+	set.keys()
+	set.values()
+	set.entries()
+	set.forEach((value,key,set)=>{})
+	new Set()
+	new Set(arr)
+	[]
+Map集合
+	new Map()
+	map.set(key,value)//添加
+	map.get(key);//获取值
+	map.has(key)//有没有某个值
+	map.delete(key)
+	map.clear(key)
+	map.keys()
+	map.values()
+	map.entries()
+	map.forEach((value,key,map)=>{})
+模块
+promise
+
+
+类 语法糖--构造函数--原型对象
+继承 extends
+	calss Animal{
+		//构造器
+		constructor(name,age){
+			//实例属性 小animal的属性
+			this.name=name;
+			this.age=age;
+		}
+		//实例的方法,小animal方法
+		sayName(){
+			console.log(this.name);
+		}
+		//static 类方法 静态方法
+		static say(){
+			console.log('say');
+		}
+	}
+	Animal.staticAttr();
+	Animal.say();
+
+实例属性
+	constructor中this后边的
+实例方法
+	在类内部没有用static修饰的方法
+
+静态属性
+	在类外部，使用类名.属性名声明的属性，只能通过类名去调用
+静态方法
+	在类内部使用static修饰的方法，只能用过类名去调用
+
+

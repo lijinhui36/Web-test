@@ -1,0 +1,285 @@
+3.4 微信小程序的UI之组件的使用
+   一、什么是组件？
+     1.组件是视图层的基本组成单元；
+     2.组件自带一些功能与微信风格的样式；
+     3.一个组件通常包括 开始标签 和 结束标签，属性 用来修饰这个组件，内容 在两个标签之内。
+   注意：所有组件与属性都是小写，以连字符"-"连接。
+         在实际开发中，经常将wxml文件中的数据，声明在.js文件中的初始化data中。
+
+
+3.5 微信小程序的UI之视图容器组件
+ 一、view
+    等同于html的div。
+
+ 二、scroll-view
+    可以滚动的视图区域。
+
+  1.滑动事件：
+    1)bindscrolltoupper：滚动到顶部/左边，会触发 scrolltoupper 事件；
+    2)bindscrolltolower：滚动到底部/右边，会触发 scrolltolower 事件；
+    3)bindscroll：滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}。
+
+    4)upper-threshold：距顶部/左边多远时（单位px，2.4.0起支持rpx），触发 scrolltoupper 事件，默认为50；
+    5)lower-threshold：	距底部/右边多远时（单位px，2.4.0起支持rpx），触发 scrolltolower 事件，默认为50。
+
+  2.起始位置：
+    1)scroll-top：设置竖向滚动条起始位置（单位px，2.4.0起支持rpx）；
+    2)scroll-left：设置横向滚动条位置（单位px，2.4.0起支持rpx）；
+    3)scroll-into-view：值应为某子元素id（id不能以数字开头）。设置哪个方向可滚动，则在哪个方向滚动到该元素；
+
+    注：使用竖向滚动时，需要给<scroll-view>一个固定高度，通过 WXSS 设置 height。
+
+ 三、movable-view
+    可移动的视图容器，在页面中可以拖拽滑动。
+    注：movable-view必须在 movable-area 组件中，并且必须是直接子节点，否则不能移动。
+
+  1.滑动配置：
+    1)direction：movable-view的移动方向；
+    2)inertia：movable-view是否带有惯性；
+    3)out-of-bounds：超过可移动区域后，movable-view是否还可以移动；
+    4)scale：是否支持双指缩放，默认缩放手势生效区域是在movable-view内；
+    5)x：定义x轴方向的偏移；
+    6)y：定义y轴方向的偏移；
+    7)damping：阻尼系数，用于控制x或y改变时的动画和过界回弹的动画，值越大移动越快；
+    8)friction：摩擦系数，用于控制惯性滑动的动画，值越大摩擦力越大，滑动越快停止；必须大于0，否则会被设置成默认值(默认值为2)
+
+  2.滑动事件：
+    1)bindchange：拖动过程中触发的事件；
+    2)bindscale：缩放过程中触发的事件；
+    
+
+ 四、swiper
+  1.指示点：
+     1)indicator-dots：是否显示面板指示点；
+     2)indicator-color：指示点颜色；
+     3)indicator-active-color：当前选中的指示点颜色。
+  
+  2.切换：
+     autoplay：是否自动切换
+   
+  3.滑块位置：
+     1)current：当前所在滑块的 index；
+     2)current-item-id：当前所在滑块的 item-id ，不能与 3)current 被同时指定。
+
+  4.interval：自动切换时间间隔
+
+  5.duration：滑动动画时长
+
+  6.vertical：滑动方向是否为纵向
+
+  7.边距：
+    1)previous-margin：前边距，可用于露出前一项的一小部分，接受 px 和 rpx 值；
+    2)next-margin：后边距，可用于露出后一项的一小部分，接受 px 和 rpx 值。
+
+  8.display-multiple-items：同时显示的滑块数量
+
+  9.事件：
+    1)bindchange：current 改变时会触发 change 事件，event.detail = {current: current, source: source}；
+    2)bindtransition：swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy}；
+    3)bindanimationfinish：动画结束时会触发 animationfinish 事件，event.detail 同上。
+
+
+3.6 微信小程序的UI之基础内容组件
+  一、icon 
+    1.type: icon的类型，有效值：success, success_no_circle, info, warn, waiting, cancel, download, search, clear
+   
+    2.size：icon的大小，单位px（2.4.0起支持rpx）；
+
+    3.color：icon的颜色，同css的color
+
+  二、text
+    1.space：显示连续空格。
+      其中有效值：1)ensp：中文字符空格一半大小
+                  2)emsp：中文字符空格大小
+		  3)nbsp：根据字体设置的空格大小
+    2.selectable：文本是否可选
+
+  三、progress
+    1.percent：百分比0~100；
+
+    2.show-info：在进度条右侧显示百分比；
+
+    3.stroke-width：进度条线的宽度，单位px（2.4.0起支持rpx）；
+
+    4.颜色：
+      1)color：进度条颜色 （请使用 activeColor）；
+      2)activeColor：已选择的进度条的颜色；
+      3)backgroundColor：未选择的进度条的颜色；
+    
+    5.动画：
+      1)active：进度条从左往右的动画；
+      2)active-mode：backwards: 动画从头播；forwards：动画从上次结束点接着播；
+      3)bindactiveend：动画完成事件。
+
+
+3.7 微信小程序的UI之表单组件
+  一、button
+    1.size：按钮的大小。
+
+    2.type：按钮的样式类型。
+
+    3.plain：按钮是否镂空，背景色透明。
+
+    4.disabled：	是否禁用。
+
+    5.loading：名称前是否带 loading 图标。
+
+    6.form-type：用于 <form> 组件，点击分别会触发 <form> 组件的 submit/reset 事件。【将来会影响到form表单】
+
+ 二、checkbox
+  checkbox-group：多项选择器，内部由多个checkbox组成。所以使用chekbox外部一定要包裹一个checkbox-group。
+
+checkbox-group：
+    1.bindchange：<checkbox-group>中选中项发生改变时触发 change 事件，detail = {value:[选中的checkbox的value的数组]}。
+
+checkbox:
+    1.value：<checkbox>标识，选中时触发<checkbox-group>的 change 事件，并携带 <checkbox> 的 value。
+
+    2.disabled：是否禁用。
+    
+    3.checked：当前是否选中，可用来设置默认选中。
+
+    4.color：checkbox的颜色，同css的color。
+
+  三、input
+    1.value：输入框的初始内容；
+
+    2.type：input 的类型；
+
+    3.password：是否是密码类型；
+
+    4.提示内容：
+      1)placeholder：输入框为空时占位符；
+      2)placeholder-style：指定 placeholder 的样式；
+      3)placeholder-class：指定 placeholder 的样式类。
+    
+    5.disabled：是否禁用。
+	 
+  四、label
+     在单选和多选组件中，进行数据绑定的作用。
+     目前可以绑定的控件有：<button>, <checkbox>, <radio>, <switch>。
+
+  五、picker
+     从底部弹起的滚动选择器，现支持五种选择器，通过mode来区分，分别是普通选择器，多列选择器，时间选择器，日期选择器，省市区选择器，默认是普通选择器。
+    1.选择器：
+      1)普通选择器：mode = selector;
+      2)多列选择器：mode = multiSelector;
+      3)时间选择器：mode = time;
+      4)日期选择器：mode = date;
+      5)省市区选择器：mode = region
+	
+  六、radio
+	radio-group单项选择器，内部由多个<radio>组成;
+
+ radio-group:
+    1.bindchange：<radio-group> 中的选中项发生变化时触发 change 事件，event.detail = {value: 选中项radio的value}。
+
+ radio：
+    1.value：<radio> 标识。当该<radio> 选中时，<radio-group> 的 change 事件会携带<radio>的value；
+
+    2.checked：当前是否选中；
+
+    3.disabled：是否禁用；
+
+    4.color：radio的颜色，同css的color
+
+
+  七、slider
+    滑动选择器。
+    1.数值：
+      1)min：最小值(0)
+      2)max：最大值(100)
+      3)step：步长，取值必须大于 0，并且可被(max - min)整除
+      4)value：当前取值
+      5)block-size：滑块的大小，取值范围为 12 - 28
+    
+    2.颜色：
+      1)backgroundColor：背景条的颜色
+      2)activeColor：已选择的颜色
+      3)block-color：滑块的颜色
+
+    3.事件：
+      1)bindchange：完成一次拖动后触发的事件，event.detail = {value: value}
+      2)bindchanging：拖动过程中触发的事件，event.detail = {value: value}
+
+    4.show-value：是否显示当前 value。
+
+  八、switch
+    开关选择器。
+    1.checked：是否选中
+    2.type：样式，有效值：switch, checkbox
+    3.bindchange：checked 改变时触发 change 事件，event.detail={ value:checked}
+
+  九、form
+    表单，将组件内的用户输入的<switch> <input> <checkbox> <slider> <radio> <picker> 提交。
+    当点击 <form> 表单中 form-type 为 submit 的 <button> 组件时，会将表单组件中的 value 值进行提交，需要在表单组件中加上 name 来作为 key。
+
+    1.bindsubmit：携带 form 中的数据触发 submit 事件，event.detail = {value : {'name': 'value'} , formId: ''}
+    2.bindreset：表单重置时会触发 reset 事件
+
+
+3.8 微信小程序的UI之操作反馈小工具
+ 一、wx.showActionSheet(Object object)，显示操作菜单。
+    
+    1.itemList：按钮的文字数组，数组长度最大为 6；(必填)
+    2.success：接口调用成功的回调函数；
+    3.fail：接口调用失败的回调函数；
+    4.itemColor：按钮的文字颜色。
+
+    
+ 二、wx.showModal(Object object)，显示模态对话框
+    1.title：提示的标题(必填)
+    2.content：提示的内容(必填)
+    3.取消按钮：
+	1)showCancel：是否显示取消按钮；
+	2)cancelText：取消按钮的文字，最多 4 个字符；
+	3)cancelColor：取消按钮的文字颜色。
+
+    4.确定按钮：
+       1)confirmText：确认按钮的文字，最多 4 个字符
+       2)confirmColor：确认按钮的文字颜色。
+    
+    5.success：接口调用成功的回调函数。
+    6.fail：接口调用失败的回调函数。
+    7.complete：接口调用结束的回调函数（调用成功、失败都会执行）。
+
+
+ 三、 wx.showToast(Object object)，显示消息提示框。
+      wx.hideToast()，隐藏消息提示框。
+
+   1.title：提示的内容（必填）。
+   2.icon：图标。
+	success：显示成功图标，此时 title 文本最多显示 7 个汉字长度；
+	loading：显示加载图标，此时 title 文本最多显示 7 个汉字长度；
+	none：不显示图标，此时 title 文本最多可显示两行。
+   3.image：自定义图标的本地路径，image 的优先级高于 icon。
+   4.duration：提示的延迟时间。
+
+   注意:
+	wx.showLoading 和 wx.showToast 同时只能显示一个
+	wx.showToast 应与 wx.hideToast 配对使用
+
+
+ 四、wx.showLoading(Object object)，显示 loading 提示框。需主动调用 wx.hideLoading 才能关闭提示框。
+
+   1.title：提示的内容(必填)。
+   2.success：接口调用成功的回调函数。
+   3.fail：接口调用失败的回调函数。
+   4.complete：接口调用结束的回调函数（调用成功、失败都会执行）。
+	
+ 注意：
+     wx.showLoading 和 wx.showToast 同时只能显示一个
+     wx.showLoading 应与 wx.hideLoading 配对使用
+
+3.9 微信小程序的UI之导航
+    navigator：页面链接。
+    1.url：当前小程序内的跳转链接；
+    2.open-type：跳转方式。
+      1)navigate
+      2)redirect
+      3)switchTab
+      4)reLaunch
+      5)navigateBack
+
+
+

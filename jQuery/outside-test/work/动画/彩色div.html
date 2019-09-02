@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    div{
+    	margin:0;
+    	padding:0;
+    	width:300px;
+    	height: 300px;
+    	background-color: #d9edf7;
+    }
+    </style>
+    <script src='../轮播图/js/jquery-3.4.1.min.js'></script>
+    <script>
+    $(function(){
+      $('div').fadeOut(2000).delay(2000).fadeIn(2000).slideUp(1500).delay(1500).slideDown(1500).hide(1000).delay(2000).show(1000);
+      // $('div').hide(1000).show(1000);
+    });
+    </script>
+</head>
+<body> 
+    <div></div>
+</body>
+</html>

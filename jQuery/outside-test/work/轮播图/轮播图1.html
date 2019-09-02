@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src='./js/jquery-3.4.1.min.js'></script>
+    <style>
+     .body{
+     	width:1366px;
+     	margin:0 auto;
+     	position: relative;
+     }
+     .picture{
+     	margin:0 auto;
+     	padding:0;
+     	position: relative;
+     	height: 768px;
+     	width: 1366px;
+     	overflow: hidden;
+     }
+     img{
+     	position:absolute;
+     	left:0;
+     	top:0;
+     }
+     .rad{
+        position: absolute;
+        top:710px;
+        margin-left:600px;
+     }
+     .rad ul{
+        list-style: none;
+        padding:0;
+        width:205px;
+        height: 15px;
+     }
+     .rad ul li{
+     	width:15px;
+     	height: 15px;
+     	border-radius: 50%;
+     	background-color:#fff;
+     	display: inline-block;
+     	margin:0 5px;
+     	cursor: pointer;
+     	float:left;
+     }
+     .rad ul li.current{
+        background-color:#999;
+     }
+     .btnBox span{
+    width:50px;
+    height: 80px;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    line-height: 79px;
+    cursor: pointer;
+    position: absolute;
+    top:47%;
+    margin-top:-10px;
+    z-index: 3;
+   }
+   #left{
+    left:0;
+   }
+   #right{
+    right:0;
+   }
+    </style>
+    <script>
+    $(function(){
+      $('.picture img:not(:first)').hide();
+      var index=0;
+      var s=$('.picture img').length;
+      var auto;
+      function move(){
+        $('.rad ul li').eq(index).addClass('current').siblings().removeClass('current');
+        $('.picture img').eq(index).stop().fadeIn().siblings().stop().fadeOut();
+      }
+      $(".rad ul li:first").addClass("current");
+      function autos(){
+        // index=$('li').index();
+        auto=setInterval(function(){
+          index=index+1;
+          if(index==s){
+             index=0;
+          }
+          move();
+        },1500);
+      }
+      autos();
+      $('.rad ul li').click(function(){
+         index = $(this).index();
+         move();
+      });
+      $('.body').mouseover(function(){
+      clearInterval(auto);
+      });
+      $('.body').mouseout(function(){
+        autos();
+      });
+    // 向左移动
+      function toLeft(){
+        index--;
+        if(index==-1){
+          index=6;
+        }
+        move();
+      }
+      $('#left').click(function(){
+        toLeft();
+      });
+      // 向右移动
+      function toRight(){
+        index++;
+        if(index==7){
+          index=0;
+        }
+        move();
+      }
+      $('#right').click(function(){
+        toRight();
+      });
+ });
+    </script>
+</head>
+<body>
+    <div class="body">
+	    <div class="picture">
+		    <img class="one" src="./images/1.jpg" alt="">
+		    <img class="two" src="./images/2.jpg" alt="">
+		    <img class="three" src="./images/3.jpg" alt="">
+		    <img class="four" src="./images/4.jpg" alt="">
+		    <img class="five" src="./images/5.jpg" alt="">
+		    <img class="six" src="./images/6.jpg" alt="">
+		    <img class="seven" src="./images/7.jpg" alt="">
+	    </div>
+      <div class="btnBox">
+            <span id="left">&lt;</span>
+            <span id="right">&gt;</span>
+      </div>
+	    <div class='rad'>
+	         <ul>
+		         <li></li>
+		         <li></li>
+		         <li></li>
+		         <li></li>
+		         <li></li>
+		         <li></li>
+		         <li></li>
+	         </ul>
+	    </div>
+    </div> 
+</body>
+</html>

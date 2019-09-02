@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格的增删改查</title>
+    <!-- 引入外部js -->
+    <script src='./myAjax.js'>
+
+    </script>
+    <script>
+        // console.log(myAjax);
+        window.onload=function(){
+        	//获取tbody
+        	//获取后台数据
+        	//将后台数据展示到表格中
+        	var tbody=document.getElementsByTagName('tbody')[0];
+        	var btnsDiv=document.getElementsByClassName('btns-div')[0];
+        	
+        	findAllCategory();
+        	tbody.onclick=function(event){
+        		var target=event.target;
+        		if(target.nodeName==='BUTTON'){
+        			console.log(target);
+        			//获取DOM节点自定义属性的属性值
+        			var id=target.getAttribute('data-id');
+        			deleteCategoryById({id:id});
+        		}
+        	}
+        	//批量删除
+        	//获取用户选中的checkox
+        	//获取要删除的id数组
+        	//传递后台进行删除
+        	//查找数据
+        	btnsDiv.onclick=function(event){
+                 var target=event.target;
+                 if(target.innerText=='新增'){
+                    //获取用户输入的数据
+                    //进行保存
+                    //查找数据
+                    saveOrUpdateCategory({
+                    	name:'yyy',
+                    	comment:'yyy',
+                    	no:2
+                    });
+                 }
+                 if(target.innerText='批量删除'){
+                 	var inputs=document.getElementsByTagName('input');
+        	        inputs=Array.prototype.slice.call(inputs,0);
+                 	//过滤选中的checkbox，获取要批量删除的id
+                 	inputs.filter(function(item){
+                 		return item.checked;
+                 	}).map(function(item){
+                 		return item.value;
+                 	});
+                 	batchDeleteCategory({id:ids.join()});
+                 }
+        	}
+        	//批量删除
+        function batchDeleteCategory(obj){
+    	myAjax('POST','/manager/category/batchDeleteCategory',boj,function(res){
+         	console.log(res+'批量删除');batchDeleteCategory();
+         },function(error){
+         	console.log(error);
+         });
+        	//单个删除
+           function deleteCategoryById(obj){
+           myAjax('GET','/manager/category/deleteCategoryById',obj,function(res){
+         	console.log(res);findAllCategory();
+            },function(error){
+         	console.log(error);
+            });
+           }
+        	function findAllCategory(){
+            myAjax('GET','/manager/category/findAllCategory',null,function(res){
+         	console.log(res.data);
+         	var str='';
+         	if(res.data&&res.data.length>0){
+         		res.data.forEach(function(item){
+                  str+='<tr>';
+		          str+=`<td>
+			        <input type="checkbox" value="`+item.id+`"/> 
+			       </td>
+			       <td>`+item.name+`</td>
+			       <td>`+item.comment+`</td>
+			       <td>
+			       <button data-id="`+item.id+`">删除</button>
+			       </td>`
+                  str+='</tr>';
+         		});
+         	}
+         	tbody.innerHTML=str;
+         },function(error){
+         	console.log(error);
+         });
+    }
+        }
+    </script>
+</head>
+<body> 
+    <div class="btns-div">
+      <button>新增</button>
+      <button>批量删除</button>
+    </div>
+    <table>
+       <thead>
+	       <tr>
+		       <th></th>
+		       <th></th>
+		       <th></th>
+		       <th></th>
+	       </tr>
+       </thead>
+       <!-- <tbody>
+       <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td></td>
+       <td></td>
+       <td>
+       <button>删除</button>
+       </td>
+       </tr>
+       </tbody> -->
+    </table>
+</body>
+</html>

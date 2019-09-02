@@ -1,0 +1,8 @@
+.input{
+  border: 1px solid red;
+  /* 外边距 */
+  margin: 5px 0 10px 0;
+  padding: 5px;
+  height: 80rpx;
+  width: 70%
+}

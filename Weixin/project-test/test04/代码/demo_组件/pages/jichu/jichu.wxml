@@ -1,0 +1,18 @@
+<view class="view1">
+  <view class="view2" wx:for="{{iconType}}">
+    <!-- 系统自带图标 -->
+    <icon type='{{item}}' size='50px'></icon>
+  </view>
+</view>
+
+<view style='margin-top:20px'>
+  <view >进度条</view>
+  <progress percent='90' show-info='{{true}}'
+        border-radius="{{30}}"
+        stroke-width='15'
+        font-size='20'
+        
+        activeColor='#ab00ff'
+        backgroundColor='#A9C3DD'
+        active='{{true}}'></progress>
+</view>

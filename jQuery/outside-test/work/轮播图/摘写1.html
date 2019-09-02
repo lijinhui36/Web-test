@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src='./js/jquery-3.4.1.min.js'></script>
+    <style>
+    *{
+    margin:0;
+    padding:0;
+}
+.wrap{
+    width:1366px;
+    height: 786px;
+    overflow: hidden;
+    position: relative;
+}
+.wraps{
+    width:1366px;
+    height: 768px;
+}
+.wraps img{
+    float: left;
+    cursor: pointer;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.page{
+    position: absolute;
+    bottom:10px;
+    right:10px;
+}
+.page span{
+    float: left;
+    width:20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    margin-left:10px;
+    cursor: pointer;
+}
+.page span.current{
+    background: rgba(0, 0, 0, 0.8);
+}
+.btnBox span{
+    width:30px;
+    height: 30px;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer;
+    position: absolute;
+    top:50%;
+    margin-top:-10px;
+    z-index: 3;
+}
+#left{
+    left:0;
+}
+#right{
+    right:0;
+}
+    </style>
+    <script>
+      $(function(){
+    $(".wraps img:not(:first)").hide();
+    var index = 0;
+    var s = $(".wraps img").length;
+    var auto;
+    // for(var i=1; i<=s; i++){
+    //     $(".page").append("<span>" + i + "</span>");
+    // }
+    $(".page span:first").addClass("current");
+    $(".page span").on("click", function(){
+        index = $(this).index();
+        move();
+    });
+    function autos(){
+        auto = setInterval(function(){
+            index++;
+            if(index == s){
+                index = 0;
+            }
+            move();
+        }, 1000);
+    }
+    autos();
+    function move(){
+        $(".page span").eq(index).addClass("current").siblings().removeClass('current');
+        $(".wraps img").eq(index).stop().fadeIn().siblings().stop().fadeOut();
+    }
+    $("#left").click(function(){
+        clearInterval(auto);
+        index--;
+        if(index <= -1){
+            index = s-1;
+        }
+        move();
+        autos();
+    });
+    $("#right").click(function(){
+        clearInterval(auto);
+        index++;
+        if(index >= s){
+            index = 0;
+        }
+        move();
+        autos();
+    });
+    $(".wraps img, .page span").mouseover(function(){
+        clearInterval(auto);
+    }).mouseout(function(){
+        autos();
+    });
+});
+    </script>
+</head>
+<body> 
+    <div class="wrap">
+        <div class="btnBox">
+            <span id="left">&lt;</span>
+            <span id="right">&gt;</span>
+        </div>
+        <div class="wraps">
+            <img src="./images/1.jpg" />
+            <img src="./images/2.jpg" />
+            <img src="./images/3.jpg" />
+        </div>
+        <p class="page">
+	        <span>1</span>
+	        <span>2</span>
+	        <span>3</span>
+        </p>
+    </div>
+</body>
+</html>

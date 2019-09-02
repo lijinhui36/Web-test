@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+    <script>
+      console.log(location);
+      console.log(window.location===document.location);
+      window.onload=function(){
+        var btns=document.getElementsByTagName('button');
+        btns[0].onclick=function(){
+          //location='./3-弹出框.html';
+          window.location.href='./3-弹出框.html';
+          //location.assign('./3-弹出框.html');
+          //location.replace('./3-弹出框.html');
+          //window.open('./3-弹出框.html');
+        }
+        btns[1].onclick=function(){
+          //参数默认为false，可以从缓存中获取，如果为true，强制从服务器取
+          location.reload();
+        }
+        bts[2].onclick=function(){
+          history.forward();
+        }
+      }
+    </script>
+</head>
+<body> 
+    <button>打开新页面</button>
+    <button>刷新</button>
+     <button>下一页</button>
+</body>
+</html>

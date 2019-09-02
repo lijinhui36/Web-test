@@ -1,0 +1,24 @@
+/* pages/forms/forms.wxss */
+
+checkbox {
+  font-size: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+radio {
+  font-size: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+view {
+  margin-top: 30px;
+}
+
+input {
+  border: 1px solid green;
+  width: 200px;
+  border-radius: 20%;
+  padding: 7px;
+}

@@ -1,0 +1,32 @@
+事件
+三要素：
+	时间目标 event.targret
+	事件处理程序 函数
+	事件对象event
+	target
+	currentTarget
+	单签正在处理事件的目标===this事件的绑定与解绑
+2.DOM0级事件处理程序
+ 非IE8及以下浏览器
+  event div.onclick=function(){
+  window.event
+  }
+  div.onclick=null;
+  div.onclick=function(){alert(1)};
+  div.onclick=function(){alert(2)};
+3.DDM2事件处理程序
+  非IE8及以下浏览器
+	  div addEventListenter('click',functioin(){},false);冒泡阶段执行
+	  参数：事件类型，事件处理程序，执行阶段
+	  false-->冒泡阶段执行
+	  true-->捕获阶段执行
+	  如果同一节点同一事件类型绑定了多个事件处理程序，依次执行
+	  function handle(event){}
+  IE8及以下处理器
+	  div.attachEvent('onclick',handle)事件绑定
+	  参数：on+事件类型，事件处理程序
+	  如果同一事件类型绑定了多个事件处理程序，逆序执行
+	  div.datachEvent('onclick',handle)
+	  参数：on+事件类型，事件处理程序
+  
+

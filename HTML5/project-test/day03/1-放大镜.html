@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+    	*{
+    		margin:0;
+    		padding:0;
+    	}
+		div{
+			border:1px solid red;
+			position: relative;
+			width: 800px;
+			height: 450px;
+		}
+		canvas{
+			border:1px solid red;
+		}
+		#canvas{
+			position: absolute;
+			top: 0;
+			left:0;
+		}
+		#big-canvas{
+			position: absolute;
+			top:100px;
+			left:400px;
+			display: none;
+		}
+		#bd-canvas{
+			position: absolute;
+			top:0;
+			left:0;
+			background: #fff;
+			opacity: 0.3;
+			border:1px solid red;
+			display: none;
+		}
+    </style>
+    <script>
+    window.onload=function(){
+    	var canvas=document.getElementById('canvas');
+    	var context=canvas.getContext('2d');
+    	var bigCanvas=document.getElementById('big-canvas');
+    	var bigContext=bigCanvas.getContext('2d');
+    	var bdCanvas=document.getElementById('bd-canvas');
+    	var bdContext=bdCanvas.getContext('2d');
+    	var parents=document.getElementsByClassName('parents')[0];
+    	var img=new Image();
+    	img.src='../images/2.jpg';
+    	img.onload=function(){
+    		context.drawImage(img,0,0,800,450);
+    	}
+	    	// var img2=new Image();
+	    	// img2.src='../images/bd.jpg';
+	    	// img2.onload=function(){
+	    	// 	bdContext.drawImage(img2,0,0,80,80);
+	    	// }
+	    // bigContext.drawImage(canvas,0,0,80,80,0,0,200,200);
+	    parents.onmousemove=function(event){
+	    	bigCanvas.style.display='block';
+	    	bdCanvas.style.display='block';
+	    	var sx=event.pageX-20;
+	    	var sy=event.pageY-20;
+	    	console.log(event.pageX,event.pageY);
+	    	// console.log(sx,sy);
+	    	if(sx>0&&sx<760&&sy>0&&sy<410){
+	    		// console.log(sx,sy);
+	    		bigContext.clearRect(0,0,100,100);
+	    	    bigContext.drawImage(canvas,sx,sy,40,40,0,0,400,400);
+	    	    bdCanvas.style.top=sy+'px';
+	    	    bdCanvas.style.left=sx+'px';
+	    	    bigCanvas.style.top='25px';
+	    	    bigCanvas.style.left='800px';
+	    	}
+	    } 
+	     
+	    parents.onmouseleave=function(){
+	    	bigCanvas.style.display='none';
+	    	bdCanvas.style.display='none';
+	    }
+    }
+    </script>
+</head>
+<body> 
+    <div class="parents">
+	    <!-- 原图 -->
+	    <canvas id="canvas" width="800px" height="450px"></canvas>
+	    <!-- 放大区域，内容跟着鼠标走 -->
+	    <canvas id="big-canvas" width="400px" height="400px"></canvas>
+	    <!-- 半透明波点区域，位置跟着鼠标走 -->
+	    <canvas id="bd-canvas" width="40px" height="40px"></canvas>
+    </div>
+</body>
+</html>

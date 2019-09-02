@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+</head>
+<body>
+	<form action="#">
+		<!-- autofocus自动聚焦 checked单选和复选的默认选中 -->
+		用户名：<input autofocus type="text" name="username" />
+		<br />
+		密码：<input type="password" name="password" />
+		<br />
+		<!-- 同一组单选按钮的name值保持一致，会有互斥现象 -->
+		<!-- 表单提交数据，实际上提交的是表单控件的value值 -->
+		性别：
+		<input checked id="male" type="radio" name="gender" value="男"/>
+		<!-- 点击label的时候点击某个表单控件 -->
+		<label for="male">男</label>
+
+		<input id="female" type="radio" name="gender" value="女"/>
+		<label for="female">女</label>
+		<br />
+		爱好：
+		<input type="checkbox" name="hobby" checked value="basketball" />篮球
+		<input type="checkbox" name="hobby" value="sing" />唱歌
+		<input type="checkbox" name="hobby" value="dancing" />跳舞
+		<br />
+		籍贯：
+		<!-- <select multiple size="2" name="address"> -->
+		<select name="address">
+			<option value="">请选择</option>
+			<option value="shanghai">上海</option>
+			<option value="beijing">北京</option>
+			<option value="jiangsu" selected>江苏</option>
+			<option value="jiangxi">江西</option>
+			<!--disabled禁用 -->
+			<option disabled value="shanxi">山西</option>
+		</select>
+		<br />
+		个人简介：
+			<textarea name="info" cols="50" rows="10"></textarea>
+		<br />
+
+
+
+		<input type="submit" value="提交">
+		<input type="reset" value="重置">
+		<!-- 可提交表单 -->
+		<input type="image" src="../day02/images/7.jpg" width="50px" height="30px" alt="">
+		<button>可提交</button>
+		<button type="submit">可提交</button>
+		<button type="reset">重置</button>
+		<button type="button">普通按钮不可提交</button>
+
+	</form>
+	<hr />
+	<form action="#" enctype="multipart/form-data" method="post">
+		<input type="text" name="test" value="test1">
+		头像：<input type="file" name="file" />
+		<button>提交</button>
+	</form>
+	<hr />
+	<form action="">
+		<!-- disabled 禁用，不提交数据
+		readonly只读，提交数据 -->
+		<input type="text" name="id" value="1001" disabled />
+		<input type="text" name="hello" value="张三" readonly />
+		<!-- 将id显示在type=hidden -->
+		<input type="hidden" name="hidden" value="123" />
+		<button>提交</button>
+	</form>
+
+
+
+
+
+</body>
+</html>

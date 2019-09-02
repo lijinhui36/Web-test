@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>s事件绑定与解绑</title>
+    <script> 
+       var stus=[{
+        id:1001,
+        name:'zhangsan',
+        age:13,
+        gender:'男'
+       },{
+        id:1002,
+        name:'lisi',
+        age:17,
+        gender:'女'
+       },{
+        id:1003,
+        name:'wangwu',
+        age:14,
+        gender:'男'
+       },{
+        id:1004,
+        name:'zhangliu',
+        age:16,
+        gender:'女'
+       },{
+        id:1005,
+        name:'liuqi',
+        age:13,
+        gender:'男'
+       }];
+       window.onload=function(){
+        var tbody=document.getElementsByTagName('tbody');
+        var batchDeleteBtn=document.getElementsByTagName('');
+
+        //遍历数组
+        var str='';
+        stus.forEach(functioin(item){
+           str+=
+        });
+        tbody.onclick=function(event){
+            var target=event.target;
+            if(target.nadeName==='BUTTOM'){
+                this.removeChild(target.parentNode.parentNode);
+            }
+        }
+        //批量删除，获取所有用户选中的input，循环删除对应的tr
+        var inputs=document.getElementsByTagName('input');
+        inputs=Array.prototype.slice.call(inputs,0);
+        var inputsResult=inputs.filter(function(item){
+            return item.checked===true;
+        });
+       }
+
+    </script>
+</head>
+<body> 
+    <button id='add'>新增</button>
+    <button id=batchdelete>批量删除</button>
+
+    <table>
+       <thead>
+           <tr>
+               <!-- 放置input复选框 -->
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr>
+               <td>
+                <input type="checkbox"/>
+               </td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+           </tr>
+       </tbody>
+    </table>
+</body>
+</html>

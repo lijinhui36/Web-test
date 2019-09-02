@@ -1,0 +1,12 @@
+/* pages/jichu/jichu.wxss */
+.view1{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:row;
+  width: 100%;
+  justify-content: center
+}
+
+.view2{
+  width: 60px
+}

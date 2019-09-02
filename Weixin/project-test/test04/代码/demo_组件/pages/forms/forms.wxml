@@ -1,0 +1,37 @@
+<view>
+ 多选框：
+  <checkbox-group bindchange="ckChange">
+    <checkbox value="学习" checked='{{true}}'>学习</checkbox>
+    <checkbox value="游戏">游戏</checkbox>
+    <checkbox value="吃">吃</checkbox>
+  </checkbox-group>
+
+</view>
+
+<view>
+  <input placeholder='输入框'
+  password='{{true}}'
+  maxlength='5'></input>
+</view>
+
+<view >
+  <text>单选框：</text>
+  <radio-group bindchange="radioChange" name="radio">
+    <radio value="男">男</radio>
+    <radio  value="女">女</radio>
+    <radio  value="妖">未知</radio>
+  </radio-group>
+</view>
+
+<view>
+  开关:
+  <switch bindchange="switchChange"></switch>
+</view>
+
+
+<view>
+  滑动：
+  <slider step='1'
+  show-value='{{true}}'
+  block-size="15" ></slider>
+</view>

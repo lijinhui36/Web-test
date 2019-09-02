@@ -1,0 +1,37 @@
+*{
+	margin:0;
+	padding:0;
+}
+header,nav,article,img{
+	display: block;
+}
+body,html{
+	height: 100%;
+}
+/*头部样式*/
+header{
+	height: 60px;
+	background-color: teal;
+}
+/*体部样式*/
+article.sc-body{
+	height: calc(100% - 60px);
+	display: flex;	
+}
+.sc-body nav{
+	width: 180px;
+	background-color:#ccc;
+	text-align: center;
+}
+.sc-body nav li{
+	list-style: none;
+	cursor: pointer;
+	line-height: 30px;
+}
+.sc-body nav li:hover{
+	color:teal;
+}
+.sc-body .content{
+	flex:1;
+	background: #fff;
+}

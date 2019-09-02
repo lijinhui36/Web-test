@@ -1,0 +1,52 @@
+正则表达式
+	/正则表达式/img
+	模式次数
+	模式
+	    直接量 a b c
+        字符类
+        字符组
+        位置
+        分组
+        次数
+包装器
+	Number
+	String
+	Boolean
+	装箱操作，拆箱操作
+	Math对象
+	    Math.min(,,,,)
+	    Math.max(,,,,)
+	    Math.ceil(,,,,)
+	    Math.floor(,,,,)
+	    Math.round(,,,,)
+	    四舍五入取整
+	    Math.random()随机数
+	Date构造函数
+	    new Date() 获取当前时间
+	    new Date(时间戳)
+	    将时间戳转换为时间类型
+	    date.getFullYear()
+	    date.getMonth()+1
+	    date.getDate()
+	    date.getHours()
+	    date.getMinutes()
+	    date.getSeconds()
+	    date.getDay()
+	    date.getTime() 获取js的时间对象对应的时间戳表示
+前后端关于时间的数据交互
+  需要前后端商量格式
+    1.时间戳
+      前端给后台 时间戳
+      先转换成Date实例，调用getTime()
+      后台给前端 时间戳
+面向对象编程
+  批量创建对象
+
+
+
+TextNode类型的属性和方法
+Document类型的属性和方法 9
+Element类型的属性和方法 1
+Text类型的属性和方法
+Comment类型的属性和方法 8
+

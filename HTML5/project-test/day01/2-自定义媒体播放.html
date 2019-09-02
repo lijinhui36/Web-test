@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义媒体播放</title>
+    <script>
+    window.onload=function(){
+    var video=document.getElementsByTagName('video')[0];
+    var toggle=document.getElementById('toggle');
+    toggle.onclick=function(event){
+        //video.paused  true就是暂停状态
+        //false就是播放状态
+        console.log(video.paused);
+        if(video.paused){
+        	video.play();
+            this.innerText='暂停1'
+        }
+        else{
+            video.pause();
+            this.innerText='播放1';
+        }
+    };
+    var btnDiv=document.getElementById('btn-div');
+    btnDiv.onclick=function(event){
+    	var text=event.target.innerText;
+    	if(text==='播放'){
+           video.play();
+    	}	
+    	if(text==='暂停'){
+    	   video.pause();
+    	}
+    	if(text==='快进'){
+           console.log(video.currentTime);
+           video.currentTime+=10;
+    	}
+    	if(text==='2倍速'){
+    		video.playbackRate=2;
+    	}
+    	if(text==='0.5倍速'){
+    		video.playbackRate=0.5;
+    	}
+    	if(text==='音量+'){
+    		video.volume+=0.1;
+    	}
+    	if(text==='音量-'){
+    		video.volume-=0.1;
+    	}
+    };
+    //document.keydown事件
+    document.keydown=function(event){
+    	//event.keyCode键盘码
+    	console.log(event.keyCode);
+    	//左 上 右 下
+    	//37 38 39 40
+    	if(event.keyCode===37){
+    		video.currentTime-=10;
+    	}
+    	if(event.keyCode===39){
+    		video.currentTime+=10;
+    	}
+    	if(event.keyCode===38){
+    		video.volume+=0.1;
+    	}
+    	if(event.keyCode===40){
+    		video.volume-=0.1;
+    	}
+    }
+ }
+    </script>
+</head>
+<body>
+    <div id="btn-div">
+	    <button>播放</button>
+	    <button>暂停</button>
+	    <button>快进</button>
+	    <button>快退</button>
+	    <button id="toggle">切换</button>
+	    <button>2倍速</button>
+	    <button>0.5倍速</button>
+	    <button>音量+</button>
+	    <button>音量-</button>
+    </div> 
+    <video src="../play/1.mp4" controls muted></video>
+</body>
+</html>

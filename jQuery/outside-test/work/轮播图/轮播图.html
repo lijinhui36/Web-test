@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src='./js/jquery-3.4.1.min.js'></script>
+    <style>
+     .body{
+     	width:1366px;
+     	margin:0 auto;
+     	position: relative;
+     }
+     .picture{
+     	margin:0 auto;
+     	padding:0;
+     	position: relative;
+     	height: 768px;
+     	width: 1366px;
+     	overflow: hidden;
+     }
+     .six,.five,.four,.three,.two,.one,.eight{
+     	position: absolute;
+     	left:-1366px;
+     }
+     img{
+     	position:absolute;
+     	left:0;
+     	top:0;
+     }
+     .rad{
+        position: absolute;
+        top:710px;
+        margin-left:600px;
+     }
+     .rad ul{
+        list-style: none;
+        padding:0;
+        width:205px;
+        height: 15px;
+     }
+     .rad ul li{
+     	width:15px;
+     	height: 15px;
+     	border-radius: 50%;
+     	background-color:#fff;
+     	display: inline-block;
+     	margin:0 5px;
+     	cursor: pointer;
+     	float:left;
+     }
+     .rad ul li:hover{
+     	background-color:#999;
+     }
+    </style>
+    <script>
+    $(function(){
+    	// function ab(){
+       $('.seven').delay(1500).animate({
+      	position:'absolute',
+      	left:'1366px'
+      },2000);
+       $('.six').delay(1500).animate({
+      	position:'absolute',
+      	left:'0px'
+      },2000);
+       $('.six').delay(1500).animate({
+      	position:'absolute',
+      	left:'1366px'
+      },2000);
+        $('.five').delay(5000).animate({
+      	position:'absolute',
+      	left:'0px'
+      },2000);
+        $('.five').delay(1500).animate({
+      	position:'absolute',
+      	left:'1366px'
+      },2000);
+         $('.four').delay(8500).animate({
+      	position:'absolute',
+      	left:'0px'
+      },2000);
+         $('.four').delay(1500).animate({
+      	position:'absolute',
+      	left:'1366px'
+      },2000);
+          $('.three').delay(12000).animate({
+      	position:'absolute',
+      	left:'0px'
+      },2000);
+          $('.three').delay(1500).animate({
+      	position:'absolute',
+      	left:'1366px'
+      },2000);
+           $('.two').delay(15500).animate({
+      	position:'absolute',
+      	left:'0px'
+      },2000);
+           $('.two').delay(1500).animate({
+      	position:'absolute',
+      	left:'1366px'
+      },2000);
+            $('.one').delay(19000).animate({
+      	position:'absolute',
+      	left:'0px'
+      },2000);
+            $('.one').delay(1500).animate({
+      	position:'absolute',
+      	left:'1366px'
+      },2000);
+            $('.eight').delay(22500).animate({
+      	position:'absolute',
+      	left:'0px'
+      },2000);
+      $('.li-1').animate({backgroundColor:'#999'},1500);
+      $('.li-2').delay(1500).animate({backgroundColor:'#999'},3500);
+      $('.li-3').delay(5000).animate({backgroundColor:'#999'},3500);
+      $('.li-4').delay(8500).animate({backgroundColor:'#999'},3500);
+      $('.li-5').delay(12000).animate({backgroundColor:'#999'},3500);
+      $('.li-6').delay(15500).animate({backgroundColor:'#999'},3500);
+      $('.li-7').delay(19000).animate({backgroundColor:'#999'},3500);
+     // setInterval(ab,24500);
+     // if($('img').){
+       // if($('.seven').css('left')==='0px'){
+       // 	$('.li-1').css('backgroundColor','#999');
+       // }
+       // else{
+       // 	$('.li-1').css('backgroundColor','#fff');
+       // }
+     // }
+     // $('img').each(function(index,item){
+     // 	if($(item).css('left')==='0px'){
+     // 		$('.li-1').css('backgroundColor','#999');
+     // 	}
+     // });
+   //   var $result = $('img').filter(function(index,item){
+			// 	// item==DOM
+			// 	// console.log(item);
+			// 	// 获取内部文本
+			// 	var text = $(item).calssName;
+			// 	// 截取字符串最后一位
+			// 	text = text.slice(text.length-1);
+			//     return text;
+			// });
+   //   var $last = $('li').filter(function(index,item){
+			// 	// item==DOM
+			// 	// console.log(item);
+			// 	// 获取内部文本
+			// 	var text1 = $(item).calssName;
+			// 	// 截取字符串最后一位
+			// 	text1 = text1.slice(text1.length-1);
+			// 	return text1;
+			// 	if(text==text1){
+			// 		$(item).css('backgroundColor','#999');
+			// 	}
+			// });
+     
+      // $('.li-1').click(function(){
+      // 	  // $('.six,.five,.four,.three,.two,.one').toggle(false);
+      // 	  $('.seven').animate({
+      // 	position:'absolute',
+      // 	left:'0'
+      // },1);
+      // });
+    });
+    </script>
+</head>
+<body>
+    <div class="body">
+	    <div class="picture">
+		    <img class="eight" src="./images/7.jpg" alt="">
+		    <img class="one" src="./images/1.jpg" alt="">
+		    <img class="two" src="./images/2.jpg" alt="">
+		    <img class="three" src="./images/3.jpg" alt="">
+		    <img class="four" src="./images/4.jpg" alt="">
+		    <img class="five" src="./images/5.jpg" alt="">
+		    <img class="six" src="./images/6.jpg" alt="">
+		    <img class="seven" src="./images/7.jpg" alt="">
+	    </div>
+	    <div class='rad'>
+	         <ul>
+		         <li class="li-1"></li>
+		         <li class="li-2"></li>
+		         <li class="li-3"></li>
+		         <li class="li-4"></li>
+		         <li class="li-5"></li>
+		         <li class="li-6"></li>
+		         <li class="li-7"></li>
+	         </ul>
+	    </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+<view class="container">
+  <!-- 快递单号的输入框 -->
+  <input class='input'
+  placeholder='请输入快递单号'
+  bindinput='inputClick'></input>
+
+  <!-- 查询按钮 -->
+  <button type='primary'
+         bindtap='btnClick'>
+    查询
+  </button>
+
+<scroll-view scroll-y style='height:650rpx'>
+  <!-- 返回信息的展示 -->
+  <view wx:for='{{kuaidiList}}' 
+        style='margin:7px'>
+    时间：{{item.time}} -- 
+    位置：{{item.status}}
+  </view>
+</scroll-view>
+
+</view>

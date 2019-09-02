@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小车移动</title>
+    <script>
+    window.onload=function(){
+    var img=document.getElementsByTagName('img');
+    // console.log(img);
+     img.left=400;
+     img.top=200;
+    document.onkeydown=move;
+    function move(e){
+        var k=e.keyCode||e.which;
+        switch(k){
+            case 37:img.left=img.left-10;break;
+            case 38:img.top=img.top-10;break;
+            case 39:img.left=img.left+10;break;
+            case 40:img.top=img.top+10;break;
+        }
+        return img.style.left=img.left+"px",img.style.top=img.top+"px";
+    }
+}
+    </script>
+</head>
+<body> 
+       <img style="position: absolute;left:400px;top:200px;width:91px;height: 46px;" src="./images/right.png" alt=""/>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS组件</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.css">
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <script src="../bootstrap-3.3.7/js/bootstrap.js"></script>
+    <style>
+    body{
+    	overflow-x:hidden;
+    }
+    .info-div{
+    	width:200px;
+    	height: 150px;
+    	position: absolute;
+    	top:10px;
+    	right:-210px;
+    	opacity: 0;
+    	/*display: none;*/
+    }
+    </style>
+    <script>
+    $(function(){
+    	//点击删除按钮之后，弹出框显示，并且三秒后消失
+    	$('#del-btn').click(function(){
+           // $('.info-div').removeClass('hidden');
+           // /$('.info-div').fadeIn(1000);
+           $('.info-div').animate({
+           	right:'10px',
+            opacity:1      
+           }
+    	});
+        //2秒之后消失，消失的事件持续了1秒
+        setTimeout(function(){
+        	$('#close-btn').click(function(){
+               $('.info-div').fadeOut(1000,function(){
+        		$('.info-div')..css({
+                   right:'-210px',
+                   opacity:0,
+                   display:'block'
+        		});
+        	});
+        });
+      },2000);
+    });
+    </script>
+</head>
+<body> 
+    <div class="container">
+	    <div class="well">
+		    <button class="btn btn-primary">
+		        <span class="glyphicon glyphicon-download"></span>下载
+		    </button>
+		    <button class="btn btn-success" id="del-btn">删除</button>
+		    <!-- alert -->
+		    <div class="alert alert-danger alert-dismissible" role="alert">
+                <button data-dismiss="alert" class="close">&times;</button><!-- class="close"右浮动的效果 -->
+                <div>hello</div>
+		    </div>
+		    <!-- 右边的提示框 -->
+		    <!-- 右上角边的提示 -->		    
+	    </div>
+    </div>
+    <div class="info-div hidden">
+        <div class="alert alert-success alert-dismissible">
+            <!-- <button class="close" data-dismiss="alert">&times;</button> -->
+            <button class="close" id="close-btn">&times;</button>
+            <div>删除成功</div>
+        </div>		    
+    </div>
+</body>
+</html>

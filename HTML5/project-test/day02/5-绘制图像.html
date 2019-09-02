@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制图像</title>
+    <style>
+	    canvas{
+	         border:1px solid red;
+	    }
+    </style>
+    <script>
+    window.onload=function(){
+    	var canvas=document.getElementById('canvas');
+    	var context=canvas.getContext('2d');
+    	//绘制图像
+    	//创建图像节点
+    	var image=new Image();
+        image.src='../images/1.jpg';
+        image.onload=function(){
+        	context.drawImage(image,0,0,300,200);
+        }
+        //裁切
+        context.beginPath();
+        context.arc(160,100,100,0,Math.PI*2);
+        context.closePath();
+        // context.fillStyle='red';
+        context.fill();
+        context.clip();
+        // image.onload=function(){
+        // 	context.drawImage(image,0,0,300,200);
+        // }
+      
+        // context.strokeText('hello',100,100);
+        // context.font='30px sans-serif';
+        // context.fillText='30px sans-serif';
+    }
+    </script>
+</head>
+<body> 
+    <canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

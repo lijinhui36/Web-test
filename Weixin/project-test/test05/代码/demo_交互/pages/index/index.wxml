@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <button class="itemView" 
+    type='warn'
+  bindtap='toastClick'>showToast吐司框  </button>
+
+  <button class="itemView" bindtap='loadingClick'>showLoading提示框  </button>
+
+  <button class="itemView" bindtap='modalClick'>showModal模态框  </button>
+
+  <button class="itemView" bindtap='actionClick'>showActionSheet列表提示框  </button>
+
+</view>
